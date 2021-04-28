@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="ss" class="kr.hs.study.beans.SonySpeaka">
+		<property name="price" value="500"/>
+	</bean>
+	
+	<bean id="as" class="kr.hs.study.beans.AppleSpeaka">
+		<constructor-arg value="1000"/>
+	</bean>
+
+ 
+	<bean id="st" class="kr.hs.study.beans.SamsungTV">
+		<property name="price" value="2000"/>
+		<property name="speaka" ref="ss"/>
+	</bean>
+	
+	<bean id="lt" class="kr.hs.study.beans.LGTV">
+		<constructor-arg value="3000"/>
+		<constructor-arg ref="as"/>
+	</bean>
+	
+</beans>

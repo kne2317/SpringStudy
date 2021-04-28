@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="obj1" class="kr.hs.study.beans.TestBean1" lazy-init="true" scope="prototype"/>
+	<bean id="d1" class="kr.hs.study.beans.DataBean1" lazy-init="true" scope="prototype"/>
+	<!-- <bean id="d2" class="kr.hs.study.beans.DataBean1" lazy-init="true" scope="prototype"/> -->
+	<!-- autowire byType일 때 같은 class의 bean이 2개 이상 있으면 에러 발생 -->
+	
+	
+	
+	<!--=============================================-->
+	
+	
+	
+	<!-- constructor DI -->
+	<bean id="obj2" class="kr.hs.study.beans.TestBean1" lazy-init="true" scope="prototype">
+		<constructor-arg value="10" type="int" index="0"/> 
+		<constructor-arg value="11.11" type="double" index="1"/>
+		<constructor-arg value="NCSDB" type="java.lang.String" index="2"/>
+		<constructor-arg ref="d1" index="3"/>
+	</bean>
+	
+	<!-- setter DI -->
+	<bean id="obj3" class="kr.hs.study.beans.TestBean1" lazy-init="true" scope="prototype">
+		<property name="a" value="20"/>
+		<property name="b" value="22.22"/>
+		<property name="c" value="Spring"/>
+		<property name="d" value="d1"/>
+	</bean>
+	
+	
+	
+	<!--=============================================-->
+	
+	
+	
+	<!-- 자동주입 -->
+	<!-- byName -->
+	<!-- private DataBean1 d1;에서 d1과 동일한 이름의 bean 객체(8번째 줄의 bean) 할당 -->
+	<!-- 객체의 멤버변수 이름 == bean의 id     일때 자동주입 -->
+	<bean id="obj4" class="kr.hs.study.beans.TestBean1" autowire="byName">
+		
+	</bean>
+
+	
+	<!-- byType -->
+	<!-- private DataBean1 d1;에서 d1과 동일한 타입(DataBean1)의 bean 객체(8번째 줄의 bean) 할당 -->
+	<!-- 객체의 멤버변수 타입 == bean의 class     일때 자동주입 -->
+	<bean id="obj5" class="kr.hs.study.beans.TestBean1" autowire="byType">
+		
+	</bean>
+	
+	
+	
+	<!-- constructor -->
+	<!-- 생성자의 매개변수타입 == bean의 타입 일치 -->
+	<bean id="obj6" class="kr.hs.study.beans.TestBean1" autowire="constructor">
+		
+	</bean>
+	
+	
+	
+	
+	
+	<bean id="obj7" class="kr.hs.study.beans.TestBean1" autowire="byName">
+		<constructor-arg value="30" type="int"/>
+		<constructor-arg value="33.33" type="double"/>
+		<constructor-arg value="spring3" type="java.lang.String"/>
+	
+	</bean>
+	
+	
+	
+	
+
+</beans>

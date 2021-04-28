@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<bean id="c1" class="kr.hs.study.beans.Car" lazy-init="true">
+	<constructor-arg value="3000" type="int"/> 
+	<constructor-arg value="sonata" type="java.lang.String"/>
+</bean>
+
+<bean id="c2" class="kr.hs.study.beans.Car" lazy-init="true">
+	<constructor-arg value="5000" type="int"/> 
+	<constructor-arg value="k9" type="java.lang.String"/>
+</bean>
+
+<bean id="car_type" class="kr.hs.study.beans.Car" lazy-init="true">
+	<constructor-arg value="7000" type="int"/> 
+	<constructor-arg value="avante" type="java.lang.String"/>
+</bean>
+
+
+<bean id="cu1" class="kr.hs.study.beans.CarUser" lazy-init="true">
+	<constructor-arg value="kim" type="java.lang.String"/> 
+	<constructor-arg value="red" type="java.lang.String"/>
+	<constructor-arg ref="c1"/>
+</bean>
+
+<bean id="cu2" class="kr.hs.study.beans.CarUser" lazy-init="true">
+	<property name="owner" value="lee"/>
+	<property name="color" value="blue"/>
+	<property name="car_type" ref="c2"/>
+</bean>
+
+
+<bean id="cu3" class="kr.hs.study.beans.CarUser" lazy-init="true" autowire="byName">
+	<property name="owner" value="park"/>
+	<property name="color" value="green"/>
+</bean>
+
+
+</beans>
