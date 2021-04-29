@@ -12,11 +12,11 @@ public class Advice {
 		System.out.println("after 호출");
 	}
 	
-	public int aroundMethod(ProceedingJoinPoint pjp) throws Throwable {
+	public int around(ProceedingJoinPoint pjp) throws Throwable {
 		System.out.println("around 메서드 호출 전");
 		int a = (Integer)pjp.proceed();
 		pjp.proceed(); // 실제 메서드(비지니스 로직) 호출
-		System.out.println("aroundd 메서드 호출 후");
+		System.out.println("around 메서드 호출 후");
 		return a;
 		
 	}
