@@ -26,7 +26,7 @@
 			
 			
 			<aop:pointcut id="point1" expression="execution(* func1())"/> <!-- pointcut 지정 -->
-			<aop:after-returning method="afterReturning" pointcut-ref="point1"/>
+			<aop:around method="aroundMethod" pointcut-ref="point1"/>
 			
 			
 			<!-- <aop:pointcut id="point" expression="execution(* kr.hs.study.beans..TestBean*.method*())"/>
