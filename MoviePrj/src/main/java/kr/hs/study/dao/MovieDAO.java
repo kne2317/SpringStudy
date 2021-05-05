@@ -14,7 +14,7 @@ public class MovieDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	@Autowired
-	private mapper mapper;
+	//private mapper mapper;
 	
 	public void insert_data(MovieDTO dto) {
 		String sql = "insert into movie values(?, ?, ?, ?)";

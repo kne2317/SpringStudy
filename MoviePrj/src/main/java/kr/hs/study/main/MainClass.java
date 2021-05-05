@@ -34,7 +34,7 @@ public class MainClass {
 
 		dao.insert_data(bean1);
 		
-		System.out.println("완료");
+		System.out.println("끝");
 		ctx.close();
 		
 	}
